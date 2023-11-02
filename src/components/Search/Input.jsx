@@ -58,7 +58,10 @@ const Input = () => {
 
   return (
     <>
-      <form className="w-4/5 h-16 bg-light-white shadow-lg rounded-lg" onSubmit={handleFormSubmission}>
+      <form
+        className="w-4/5 h-16 bg-light-white shadow-lg rounded-lg"
+        onSubmit={handleFormSubmission}
+      >
         <div className="flex justify-between items-center w-full p-2">
           <div className="flex items-center w-4/5 ml-8">
             <i className="mr-4">
@@ -82,11 +85,11 @@ const Input = () => {
           </div>
         </div>
       </form>
-      <div className="w-4/5 bg-light-white rounded-lg mt-4 shadow-lg flex">
-        <Profile 
-            userData={userData}
-        />
-      </div>
+      {userData && (
+        <div className="w-4/5 p-12 bg-light-white rounded-lg mt-4 shadow-lg flex">
+          <Profile userData={userData} />
+        </div>
+      )}
     </>
   );
 };
