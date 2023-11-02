@@ -1,6 +1,7 @@
 import IconSearch from "../../assets/IconSearch";
 import { useEffect, useState } from "react";
 import { getGitHubUser } from "../../api/helpers";
+import Profile from "../Profile/Profile";
 
 const Input = () => {
   const [username, setUsername] = useState("");
@@ -12,8 +13,8 @@ const Input = () => {
   };
 
   useEffect(() => {
-    console.log(userData)
-  }, [userData])
+    console.log(userData);
+  }, [userData]);
 
   const handleFormSubmission = async (e) => {
     e.preventDefault();
@@ -44,9 +45,8 @@ const Input = () => {
         public_repos,
         location,
         twitter_username,
-        blog
+        blog,
       });
-
     } catch (error) {
       console.error(error);
       setIsLoading(false);
@@ -57,30 +57,37 @@ const Input = () => {
   };
 
   return (
-    <form className="w-full" onSubmit={handleFormSubmission}>
-      <div className="flex justify-between items-center w-full p-2">
-        <div className="flex items-center w-4/5 ml-8">
-          <i className="mr-4">
-            <IconSearch />
-          </i>
-          <label htmlFor="input"></label>
-          <input
-            type="text"
-            id="input"
-            name="input"
-            placeholder="Search for a GitHub user"
-            className="pl-2 w-4/5"
-            value={username}
-            onChange={handleChange}
-          />
+    <>
+      <form className="w-4/5 h-16 bg-light-white shadow-lg rounded-lg" onSubmit={handleFormSubmission}>
+        <div className="flex justify-between items-center w-full p-2">
+          <div className="flex items-center w-4/5 ml-8">
+            <i className="mr-4">
+              <IconSearch />
+            </i>
+            <label htmlFor="input"></label>
+            <input
+              type="text"
+              id="input"
+              name="input"
+              placeholder="Search for a GitHub user"
+              className="pl-2 w-4/5"
+              value={username}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <button className="bg-light-blue text-white rounded-lg h-12 w-24">
+              Search
+            </button>
+          </div>
         </div>
-        <div>
-          <button className="bg-light-blue text-white rounded-lg h-12 w-24">
-            Search
-          </button>
-        </div>
+      </form>
+      <div className="w-4/5 bg-light-white rounded-lg mt-4 shadow-lg flex">
+        <Profile 
+            userData={userData}
+        />
       </div>
-    </form>
+    </>
   );
 };
 
