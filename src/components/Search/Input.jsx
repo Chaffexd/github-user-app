@@ -7,6 +7,7 @@ const Input = () => {
   const [username, setUsername] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [userData, setUserData] = useState(null);
+  const [errorState, setErrorState] = useState(false);
 
   const handleChange = (event) => {
     setUsername(event.target.value);
@@ -22,6 +23,7 @@ const Input = () => {
     setIsLoading(true);
     try {
       const response = await getGitHubUser(username);
+      console.log(response)
       const {
         login,
         avatar_url,
@@ -33,7 +35,10 @@ const Input = () => {
         location,
         twitter_username,
         blog,
+        company
       } = response.data;
+
+      setErrorState(false);
 
       setUserData({
         login,
@@ -46,11 +51,13 @@ const Input = () => {
         location,
         twitter_username,
         blog,
+        company
       });
     } catch (error) {
       console.error(error);
       setIsLoading(false);
-      console.log(isLoading);
+      console.log(`We have some error, loading state is: ${isLoading}`);
+      setErrorState(true);
     } finally {
       setIsLoading(false);
     }
@@ -73,10 +80,12 @@ const Input = () => {
               id="input"
               name="input"
               placeholder="Search for a GitHub user"
-              className="pl-2 w-4/5"
+              className="pl-2 w-3/4"
               value={username}
               onChange={handleChange}
+              required
             />
+            {errorState && <span className="text-red-500 font-bold text-sm">No results</span>}
           </div>
           <div>
             <button className="bg-light-blue text-white rounded-lg h-12 w-24">
