@@ -23,7 +23,6 @@ const Input = () => {
     setIsLoading(true);
     try {
       const response = await getGitHubUser(username);
-      console.log(response)
       const {
         login,
         avatar_url,
