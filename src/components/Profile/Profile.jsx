@@ -20,13 +20,13 @@ const Profile = ({ userData }) => {
       <div className="w-full">
         <div>
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold">{userData.login}</h1>
+            <h1 className="text-2xl font-bold dark:text-white">{userData.login}</h1>
             <time className="text-sm text-light-gray">Joined {formattedDate}</time>
           </div>
           <h2 className="text-light-blue">@{`${userData.login}`}</h2>
           <h3 className="my-4 text-m text-light-gray">{userData.bio}</h3>
         </div>
-        <div className="flex w-full bg-light-off-white rounded-lg px-8 py-4 justify-between">
+        <div className="flex w-full bg-light-off-white rounded-lg px-8 py-4 justify-between dark:bg-dark-navy dark:text-white">
           <div>
             <p className="text-light-gray">Repos</p>
             <p className="font-bold text-xl">{userData.public_repos}</p>
@@ -40,7 +40,7 @@ const Profile = ({ userData }) => {
             <p className="font-bold text-xl">{userData.following}</p>
           </div>
         </div>
-        <div className="flex flex-col h-12 w-full mt-8 text-light-gray">
+        <div className="flex flex-col h-12 w-full mt-8 text-light-gray dark:text-white">
           <div className="flex justify-between mb-4">
             <span className="w-3/5 flex items-center">
               <IconLocation />

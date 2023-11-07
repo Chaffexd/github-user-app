@@ -5,6 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{jsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -14,6 +15,8 @@ export default {
         "light-navy": "var(--light-navy)",
         "light-off-white": "var(--light-off-white)",
         "light-white": "var(--light-white)",
+        "dark-navy": "var(--dark-navy)",
+        "dark-blue": "var(--dark-blue)",
         "heading-one-size": "var(--heading-one-size)",
         "heading-one-line-height": "var(-heading-one-line-height)",
         "heading-two-size": "var(--heading-two-size)",

@@ -68,7 +68,7 @@ const Input = () => {
         className="w-4/5 h-16 bg-light-white shadow-lg rounded-lg"
         onSubmit={handleFormSubmission}
       >
-        <div className="flex justify-between items-center w-full p-2">
+        <div className="flex justify-between items-center w-full p-2 dark:bg-dark-blue rounded-lg">
           <div className="flex items-center w-4/5 ml-8">
             <i className="mr-4">
               <IconSearch />
@@ -79,7 +79,7 @@ const Input = () => {
               id="input"
               name="input"
               placeholder="Search for a GitHub user"
-              className="pl-2 w-3/4"
+              className="pl-2 w-3/4 dark:bg-dark-blue dark:placeholder-white dark:text-white"
               value={username}
               onChange={handleChange}
               required
@@ -94,7 +94,7 @@ const Input = () => {
         </div>
       </form>
       {userData && (
-        <div className="w-4/5 p-12 bg-light-white rounded-lg mt-4 shadow-lg flex">
+        <div className="w-4/5 p-12 bg-light-white rounded-lg mt-4 shadow-lg flex dark:bg-dark-blue">
           <Profile userData={userData} />
         </div>
       )}
