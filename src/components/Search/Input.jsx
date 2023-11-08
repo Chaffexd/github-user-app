@@ -87,7 +87,7 @@ const Input = () => {
             {errorState && <span className="text-red-500 font-bold text-sm">No results</span>}
           </div>
           <div>
-            <button className="bg-light-blue text-white rounded-lg h-12 w-24">
+            <button className="bg-light-blue text-white rounded-lg h-12 w-24 hover:bg-sky-600">
               Search
             </button>
           </div>
